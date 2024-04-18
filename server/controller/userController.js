@@ -39,3 +39,31 @@ res.status(200).json(userExist);
          res.status(500).json({ message: err.message });  
     }
 }
+export const update = async (req, res) => {
+try {
+    const id= req.params.id;
+    const userExist = await User.findById(id);
+    if(!userExist){
+        res.status(404).json({message :"User not found"});
+    }
+const updateddata = await User.findByIdAndUpdate(id, req.body , {new: true});
+res.status(200).json({updateddata});
+}
+catch (error) {
+    res.status(500).json({ error : error.message });
+}
+}
+
+export const deleteu = async (req, res) => {
+    try {
+        const id= req.params.id;
+        const userexist = await User.findById(id);
+        if(!userexist){
+            res.status(404).json({message: "User not found"});
+        }
+        await User.findByIdAndDelete(id);
+        res.status(200).json({message: "User deleted successfully"});
+    } catch (error) {
+      res.status(500).json({error: error.message});  
+    }
+}
