@@ -4,7 +4,7 @@ import "./User.css";
 const User = () => {
   return (
     <div className='usertable'>
-      <Link to='./adduser' className='addbu' >Add User</Link>
+      <Link to='./add' className='addbu' >Add User</Link>
       <table border={1} cellPadding={10} cellSpacing={0} >
         <thead>
           <tr>
@@ -20,8 +20,8 @@ const User = () => {
             <td>Kartik</td>
             <td>abc@gmail.com</td>
             <td className='actionbutton'>
-              <Link to='./edituser'>Edit</Link>
-              <button>Delete</button>
+              <Link to='./edit'><i className="fa-regular fa-pen-to-square"></i></Link>
+              <button><i className="fa-solid fa-trash"></i></button>
             </td>
           </tr>
         </tbody>

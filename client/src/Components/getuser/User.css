@@ -11,6 +11,7 @@ text-align: none;
 font-weight: 400;
 border-radius: 10%;
 padding:5px;
+text-decoration: none;
 }
 .usertable table{
     width: 100%;
@@ -30,6 +31,21 @@ padding:5px;
 }
 .actionbutton button{
     outline: none;
-    
+    border:0;
+    background-color: rgb(233, 80, 93);
     padding:8px 10px;
+    color:white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.actionbutton a{
+    text-decoration: none;
+    outline: none;
+    border:0;
+    background-color: rgb(80, 233, 123);
+    padding:6px 10px;
+    color:white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:0 10px;
 }

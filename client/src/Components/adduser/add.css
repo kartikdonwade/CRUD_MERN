@@ -1,0 +1,39 @@
+.adduser{
+    width: 25%;
+    background-color: rgb(249, 242, 242);
+        margin: 50px auto;
+        padding: 50px;
+    
+}
+.backbu{
+    background-color: skyblue;
+        color: white;
+        text-align: none;
+        font-weight: 400;
+        border-radius: 10%;
+        padding: 5px;
+        text-decoration: none;
+}
+.formadd .inputf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formadd .inputf input{
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+.formadd .inputf button{
+    width: 50%;
+    align-items: center;
+   margin-left: 25%;
+    padding: 5px;
+    outline: none;
+   border: 0;
+    border-radius: 10px;
+    background-color: rgb(172, 247, 247);
+    cursor: pointer;
+}
