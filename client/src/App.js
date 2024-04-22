@@ -1,27 +1,26 @@
 
 import './App.css';
-import {createBrowserRouter} from './BrowserRouter.js';
-
-
+import {createBrowserRouter,RouterProvider} from 'react-router-dom';
+import Adduser from './Components/adduser/User'
+import Getuser from './Components/getuser/User'
 function App() {
-  const route = createBrowserRouter(
-[{
-  path:"/",
-  element:"Home Page",
-},
-{
-  path:"/add",
-  element:"User add ",
-},
-{
-  path:"/edit",
-  element:"Edit page",
-},
-]
-  );
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: <Getuser />,
+    },
+    {
+      path: "/add",
+      element: <Adduser />,
+    },
+    {
+      path: "/edit",
+      element: <Getuser />,
+    },
+  ]);
   return (
     <div className="App">
-Hi
+<RouterProvider router={route}></RouterProvider>
     </div>
   );
 }
