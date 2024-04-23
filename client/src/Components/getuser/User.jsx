@@ -9,12 +9,18 @@ useEffect(()=>{
 const fetchdata =async () =>{
 const response =await axios.get("http://localhost:8000/api/getall");
 setusers(response.data);
-
 }
 
 fetchdata();
 },[])
+const duser =async (userid) =>{
+await axios.delete(`http://localhost:8000/api/delete/${userid}`)
+.then(()=>{
+setusers((prev)=>prev.filter((user)=>user._id !== userid));
 
+}).catch((error) =>{console.error(error)})
+
+}
   return (
     <div className='usertable'>
       <Link to='./add' className='addbu' >Add User</Link>
@@ -36,7 +42,7 @@ fetchdata();
             <td>{user.email}</td>
             <td className='actionbutton'>
               <Link to='./edit'><i className="fa-regular fa-pen-to-square"></i></Link>
-              <button><i className="fa-solid fa-trash"></i></button>
+              <button onClick={()=>duser(user._id)}><i className="fa-solid fa-trash"></i></button>
             </td>
           </tr>);
  

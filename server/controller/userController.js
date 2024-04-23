@@ -7,7 +7,7 @@ if(!udata){
     res.status(404).json({message: "User not found"});
 }
 const savedata =await udata.save();
-res.status(200).json({message: savedata});
+res.status(200).json({message: "user created successfully"});
 
 
     } catch (err) {
