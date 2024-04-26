@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import "./User.css";
+import toast from 'react-hot-toast';
 const User = () => {
 
 const [users,setusers] =useState([]);
@@ -16,6 +17,7 @@ fetchdata();
 const duser =async (userid) =>{
 await axios.delete(`http://localhost:8000/api/delete/${userid}`)
 .then(()=>{
+  toast.success("User deleted successfully", {position:"top-right"})
 setusers((prev)=>prev.filter((user)=>user._id !== userid));
 
 }).catch((error) =>{console.error(error)})
@@ -41,7 +43,7 @@ setusers((prev)=>prev.filter((user)=>user._id !== userid));
             <td>{user.fname} {user.lname}</td>
             <td>{user.email}</td>
             <td className='actionbutton'>
-              <Link to='./edit'><i className="fa-regular fa-pen-to-square"></i></Link>
+              <Link to={`./edit/`+user._id}><i className="fa-regular fa-pen-to-square"></i></Link>
               <button onClick={()=>duser(user._id)}><i className="fa-solid fa-trash"></i></button>
             </td>
           </tr>);

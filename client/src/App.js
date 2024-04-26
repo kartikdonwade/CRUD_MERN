@@ -4,6 +4,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom';
 import Adduser from './Components/adduser/add'
 import Getuser from './Components/getuser/User'
 import Edituser from './Components/edituser/edit'
+import { Toaster } from 'react-hot-toast';
 function App() {
   const route = createBrowserRouter([
     {
@@ -15,13 +16,14 @@ function App() {
       element: <Adduser />,
     },
     {
-      path: "/edit",
+      path: "/edit/:id",
       element: <Edituser />,
     },
   ]);
   return (
     <div className="App">
-<RouterProvider router={route}></RouterProvider>
+      <RouterProvider router={route}></RouterProvider>
+      <Toaster />
     </div>
   );
 }

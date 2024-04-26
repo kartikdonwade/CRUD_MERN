@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import {Link, useNavigate} from 'react-router-dom'
 import "./add.css"
-import toast from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast';
 
 const Add = () => {
       const users={
@@ -21,17 +21,23 @@ const Add = () => {
   
     
   }
+
   const submitform = async (e) =>{
     e.preventDefault();
     await axios.post("http://localhost:8000/api/create",user)
     .then((res) => {
+    
 toast.success(res.data.message, {position:"top-right"})
+  
  navigate('/')
     }).catch(err => console.log(err));
    
   }
   return (
     <div className='adduser'>
+    
+       
+     
       <Link className='backbu' to="/">Back
     </Link>
     <h3>Add User</h3>
@@ -45,7 +51,7 @@ toast.success(res.data.message, {position:"top-right"})
     <div className='inputf'>   <label>Password</label>
       <input type="password" onChange={inputHandler} name="password" placeholder='Password'/></div>
    <div className='inputf'><button className="btn btn-primary " type="submit">Add User</button></div>
-
+ <Toaster />
       </form></div>
   )
 }
